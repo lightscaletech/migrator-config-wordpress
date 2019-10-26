@@ -42,12 +42,13 @@ class Wordpress {
 
     public function config() {
         return [
-            'init'              => [$this, 'init_wp'],,
+            'init'              => [$this, 'init_wp'],
             'version_update_fn' => [$this, 'version_update'],
             'version_get_fn'    => [$this, 'version_get'],
             'get_db_fn'         => [$this, 'get_db'],
 
-            'migrations_dir' => $this->directory;
+            'migrations_dir' => $this->directory,
+        ];
     }
 
 }
