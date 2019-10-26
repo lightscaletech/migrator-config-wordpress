@@ -7,7 +7,7 @@ class Wordpress {
     private $load_path = '';
     private $namespace = '';
     private $version_key = '';
-    private $directory
+    private $directory = '';
 
     public function __construct(
         $namespace,
