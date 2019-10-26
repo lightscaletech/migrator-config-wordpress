@@ -2,7 +2,7 @@
   "name": "lightscale/migrator-config-wordpress",
   "description": "A helper class to configure lightscale/migrator to work in a wordpress plugin",
   "type": "library",
-  "license": "GPLv3",
+  "license": "GPL-3.0-only",
   "version": "0.0.1",
   "authors": [
     {
