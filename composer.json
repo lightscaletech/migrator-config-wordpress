@@ -1,0 +1,20 @@
+{
+  "name": "lightscale/migrator-config-wordpress",
+  "description": "A helper class to configure lightscale/migrator to work in a wordpress plugin",
+  "type": "library",
+  "license": "GPLv3",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Sam Light",
+      "email": "sam@lightscale.co.uk"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Lightscale\\Migrator\\Config\\": "src/"
+    }
+  }
+}
