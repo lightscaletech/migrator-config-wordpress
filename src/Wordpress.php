@@ -27,11 +27,11 @@ class Wordpress {
         require_once('../../../wp-load.php');
     }
 
-    public function version_get() {
+    public function version_get($db) {
         return get_option($this->version_key);
     }
 
-    public function version_update($version) {
+    public function version_update($db, $version) {
         update_option($this->version_key, $version, false);
     }
 
