@@ -3,24 +3,10 @@ A configuration for lightscale/migrator that enabled it to work in a wordpress
 theme or plugin. It provides the class `Lightscale\Migrator\Config\Wordpress`.
 
 ## Install
-Currently I have not added this to packagist meaning that to install it you have
-add the git repo to your `composer.json`.
-
-``` json
-    "repositories": [
-        {
-            "url": "https://github.com/lightscaletech/migrator-config-wordpress.git",
-            "type": "vcs"
-        }
-    ],
-    "require": {
-        "lightscale/migrator-config-wordpress": "dev-master"
-    }
+This should be installed from packagist with composer:
+``` shell
+$ composer require lightscale/migrator-config-wordpress
 ```
-
-Once this is added run `composer update` to install it.
-
-I'd like to get this added to packagist but one thing at a time.
 
 ## Usage
 
