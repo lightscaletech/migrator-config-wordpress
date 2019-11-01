@@ -11,12 +11,13 @@ class Wordpress {
 
     public function __construct(
         $namespace,
-        $directory = 'dbmigrations',
+        $base_dir,
+        $directory = './dbmigrations',
         $load_path = '../../../wp-load.php') {
 
         $this->namespace = $namespace;
-        $this->load_path = $load_path;
-        $this->directory = $directory;
+        $this->load_path = $base_dir . $load_path;
+        $this->directory = $base_dir . $directory;
 
         $this->version_key = $this->namespace . '_migrator_version';
     }
