@@ -22,7 +22,7 @@ This file needs to look something like this:
 
 use Lightscale\Migrator\Config\Wordpress;
 
-$config = new Wordpress('textdomain');
+$config = new Wordpress('textdomain', __DIR__);
 return $config->config();
 
 ```
@@ -31,9 +31,10 @@ return $config->config();
 
 ### Constructor
 
-#### __construct($namespace, $directory = 'dbmigrations', $load_path = '../../../wp-load.php')
+#### __construct($namespace, $base_dir, $directory = 'dbmigrations', $load_path = '../../../wp-load.php')
 - $namespace (string) - is the text domain that is used to create a key in the
 wp_options table.
+- $base_dir (string) - is the directory that is the base of install. Relative to config. Can be __DIR__
 - $directory (string) - is the directory when the migrations are stored.
 - $load_path (string) - is the path to wp-load.php for initialising wordpress
 with the commandline migrator tool.
@@ -45,6 +46,7 @@ with the commandline migrator tool.
 **return** - the config array to return from the migrator_config.php file.
 
 ## Release history
+- 0.0.2 Added base_dir functionality
 - 0.0.1 All core functionality working. Still in on-going development.
 
 ## Requirements
