@@ -20,6 +20,7 @@ class Wordpress {
         $this->namespace = $namespace;
         $this->load_path = $base_dir . $load_path;
         $this->directory = $base_dir . $directory;
+        $this->transactions = $transactions;
 
         $this->version_key = $this->namespace . '_migrator_version';
     }
