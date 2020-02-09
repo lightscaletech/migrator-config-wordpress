@@ -8,12 +8,14 @@ class Wordpress {
     private $namespace = '';
     private $version_key = '';
     private $directory = '';
+    private $transactions = true;
 
     public function __construct(
         $namespace,
         $base_dir,
         $directory = './dbmigrations',
-        $load_path = '../../../wp-load.php') {
+        $load_path = '../../../wp-load.php',
+        $transactions = true) {
 
         $this->namespace = $namespace;
         $this->load_path = $base_dir . $load_path;
@@ -41,15 +43,33 @@ class Wordpress {
         return $wpdb;
     }
 
+    public function transaction_start($db) {
+        $db->query('START TRANSACTION');
+    }
+
+    public function transaction_commit($db) {
+        $db->query('COMMIT');
+    }
+
+    public function transaction_rollback($db) {
+        $db->query('ROLLBACK');
+    }
+
     public function config() {
-        return [
+        $conf = [
             'init'              => [$this, 'init_wp'],
             'version_update_fn' => [$this, 'version_update'],
             'version_get_fn'    => [$this, 'version_get'],
             'get_db_fn'         => [$this, 'get_db'],
-
             'migrations_dir' => $this->directory,
         ];
+
+        if($this->transactions) {
+            $conf['transactions_enabled'] = true;
+            $conf['transaction_start'] = [$this, 'transaction_start'];
+            $conf['transaction_commit'] = [$this, 'transaction_commit'];
+            $conf['transaction_rollback'] = [$this, 'transaction_rollback'];
+        }
     }
 
 }
