@@ -70,6 +70,7 @@ class Wordpress {
             $conf['transaction_commit'] = [$this, 'transaction_commit'];
             $conf['transaction_rollback'] = [$this, 'transaction_rollback'];
         }
+        return $conf;
     }
 
 }
